@@ -153,3 +153,53 @@ footer p { color:rgba(255,255,255,.62); margin:8px 0 0; font-size:13px; line-hei
   .footerRight { text-align:left; }
   .scenicBreak { min-height:450px; }
 }
+
+/* Common Questions page */
+.subHeader {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dde4df;
+}
+.darkBrand { color: var(--pine); }
+.darkBrand .brandMark { border-color: #9cac9f; }
+.subNav { display:flex; gap:30px; align-items:center; font-size:14px; color:var(--pine); }
+.subNav a { opacity:.86; }
+.subNav .active { font-weight:800; opacity:1; }
+.darkNavButton { border-color:#aebbb4; }
+
+.faqHero { background:linear-gradient(180deg,#f6f1e8 0%,#fffdf8 100%); }
+.faqHeroInner { width:min(1180px,calc(100% - 48px)); margin:0 auto; padding:82px 0 88px; }
+.faqHeroInner h1 { max-width:900px; margin:0; font-family:Georgia,'Times New Roman',serif; font-weight:400; font-size:clamp(48px,6vw,78px); line-height:1.03; letter-spacing:-.035em; color:var(--pine); }
+.faqHeroInner > p:last-child { max-width:720px; margin:28px 0 0; color:var(--muted); font-size:18px; line-height:1.7; }
+
+.faqSection { padding:90px max(24px,calc((100vw - 1180px)/2)) 110px; }
+.faqItem { display:grid; grid-template-columns:70px 1fr; gap:28px; }
+.faqNumber { width:52px; height:52px; border-radius:50%; display:grid; place-items:center; background:var(--pine); color:white; font-size:12px; font-weight:800; letter-spacing:.06em; }
+.faqContent h2 { font-family:Georgia,'Times New Roman',serif; font-size:clamp(34px,4vw,52px); line-height:1.08; font-weight:400; margin:0; color:var(--ink); }
+.faqLead { max-width:900px; margin:20px 0 34px; color:var(--muted); font-size:17px; line-height:1.7; }
+.tableWrap { overflow-x:auto; border:1px solid #dfe4df; border-radius:16px; background:white; box-shadow:0 12px 32px rgba(20,45,36,.06); }
+.inspectorTable { width:100%; min-width:980px; border-collapse:collapse; font-size:14px; }
+.inspectorTable th { text-align:left; padding:16px 18px; background:var(--pine); color:white; font-size:12px; text-transform:uppercase; letter-spacing:.06em; white-space:nowrap; }
+.inspectorTable td { padding:16px 18px; border-bottom:1px solid #e6eae6; vertical-align:top; line-height:1.45; }
+.inspectorTable tbody tr:last-child td { border-bottom:none; }
+.inspectorTable tbody tr:nth-child(even) { background:#fbfaf6; }
+.inspectorTable td:last-child { white-space:nowrap; }
+.faqNote { margin-top:24px; padding:18px 20px; border-left:4px solid var(--gold); background:#f8f4e8; color:#4f5d57; line-height:1.6; border-radius:8px; }
+.moreQuestions { margin:90px 0 0 98px; padding-top:60px; border-top:1px solid #dfe4df; max-width:900px; }
+.moreQuestions h2 { margin:0; font-family:Georgia,'Times New Roman',serif; font-size:clamp(34px,4vw,50px); line-height:1.08; font-weight:400; }
+.moreQuestions > p:last-child { color:var(--muted); font-size:17px; line-height:1.65; max-width:720px; }
+
+@media (max-width: 760px) {
+  .subHeader { width:calc(100% - 32px); height:78px; }
+  .subNav a:not(.navButton) { display:none; }
+  .faqHeroInner { width:calc(100% - 32px); padding:60px 0 68px; }
+  .faqSection { padding-top:68px; }
+  .faqItem { grid-template-columns:1fr; gap:20px; }
+  .moreQuestions { margin-left:0; margin-top:72px; }
+}
+.resourceCardLink { transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.resourceCardLink:hover { transform:translateY(-3px); box-shadow:0 12px 28px rgba(20,45,36,.09); border-color:#cab98f; }

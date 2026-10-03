@@ -1,98 +1,151 @@
 const officialUrl = 'https://www.tellercounty.gov/1014/Short-Term-Rental-Information';
 
-const inspectors = [
-  { contractor: 'Savage Septic Service', examinee: 'James Savage', certification: 'NAWT - Vacuum Truck', mechanicId: '4972', contractorId: '29727', expiration: '5/20/2027' },
-  { contractor: 'Underground Solutions', examinee: 'Timothy Galvin', certification: 'NAWT - Inspector, O&M', mechanicId: '', contractorId: '180', expiration: '10/31/2026' },
-  { contractor: 'M and S Plowing LLC', examinee: 'Sheldon Bennett', certification: 'NAWT - Inspector', mechanicId: '', contractorId: '28677', expiration: '10/31/2027' },
-  { contractor: 'Septic Remedy, LLC', examinee: 'Michael Slayton', certification: 'NAWT - Inspector', mechanicId: '', contractorId: '29252', expiration: '10/31/2027' },
-  { contractor: '4 Mile Septic', examinee: 'Cody Schwab', certification: 'NAWT - Inspector', mechanicId: '4966', contractorId: '', expiration: '9/30/2026' },
-  { contractor: 'Alpine Septic', examinee: 'Chris Diethelm', certification: 'NAWT - Inspector', mechanicId: '4961', contractorId: '28418', expiration: '5/31/2027' },
-  { contractor: 'High Country Sewer & Septic LLC', examinee: 'Rich Stuckey', certification: 'NAWT - Inspector', mechanicId: '', contractorId: '29558', expiration: '9/30/2026' },
-  { contractor: 'Tri-County Septic Service Inc.', examinee: 'Patrick Lohmeier', certification: 'NAWT - Inspector', mechanicId: '4316', contractorId: '29740', expiration: '11/30/2026' },
-  { contractor: 'TAC Construction Services DBA TCS Septic', examinee: 'Terrell Cobb', certification: 'NAWT - Inspector, O&M', mechanicId: '4971', contractorId: '28510', expiration: '11/30/2027' },
-  { contractor: 'Absolute Septic, LLC', examinee: 'Timothy Edwards', certification: 'NAWT - Inspector', mechanicId: '112', contractorId: '28126', expiration: '11/30/2027' },
-  { contractor: 'Absolute Excavating LLC', examinee: 'Matthew Peterson', certification: 'NAWT - Inspector', mechanicId: '', contractorId: '29627', expiration: '9/16/2027' },
+const steps = [
+  {
+    n: '01',
+    title: 'Understand the ordinance',
+    text: 'Start with the adopted Teller County rules and learn which requirements apply to your property.'
+  },
+  {
+    n: '02',
+    title: 'Prepare your property',
+    text: 'Work through safety, occupancy, parking, guest-information, and property-documentation requirements.'
+  },
+  {
+    n: '03',
+    title: 'Gather your documents',
+    text: 'Use a practical checklist so the application package is organized before the County begins accepting applications.'
+  },
+  {
+    n: '04',
+    title: 'Apply with confidence',
+    text: 'Follow a step-by-step application guide, track deadlines, and keep copies of everything you submit.'
+  }
+];
+
+const resources = [
+  ['Start Here', 'A simple overview of who needs a license, what to prepare, and what to do first.'],
+  ['Application Checklist', 'A working checklist of documents, inspections, property details, and owner information.'],
+  ['Property Requirements', 'Plain-English guidance on the operational and safety requirements that affect your STR.'],
+  ['Forms & Documents', 'Quick links to official Teller County forms, ordinance documents, FAQs, and supporting materials.'],
+  ['Common Questions', 'Answers to practical questions STR owners may have while preparing for licensing.'],
+  ['Updates', 'Track new County announcements, application dates, procedures, and implementation changes.']
 ];
 
 function Header() {
   return (
-    <header className="subHeader">
-      <a className="brand darkBrand" href="/" aria-label="Teller County STR Help home">
+    <header className="siteHeader">
+      <a className="brand" href="#top" aria-label="Teller County STR Help home">
         <span className="brandMark">TC</span>
         <span>
           <strong>Teller County</strong>
           <small>STR Help</small>
         </span>
       </a>
-      <nav className="subNav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a className="active" href="/common-questions">Common Questions</a>
-        <a className="navButton darkNavButton" href={officialUrl} target="_blank" rel="noreferrer">Official County Site</a>
+      <nav className="nav" aria-label="Main navigation">
+        <a href="#start">Start Here</a>
+        <a href="#resources">Resources</a>
+        <a href="#updates">Updates</a>
+        <a className="navButton" href={officialUrl} target="_blank" rel="noreferrer">Official County Site</a>
       </nav>
     </header>
   );
 }
 
-export default function CommonQuestions() {
+export default function Home() {
   return (
-    <main>
-      <section className="faqHero">
+    <main id="top">
+      <section className="hero">
         <Header />
-        <div className="faqHeroInner">
-          <p className="sectionKicker">Common questions</p>
-          <h1>Practical answers for Teller County STR owners.</h1>
-          <p>
-            Straightforward information to help you prepare documents, inspections, and other items that may be needed for the STR licensing process.
+        <div className="heroShade" />
+        <div className="heroContent">
+          <p className="eyebrow">A practical resource for Teller County STR owners</p>
+          <h1>Get ready for<br /><span>STR licensing.</span></h1>
+          <p className="heroText">
+            Clear, step-by-step help for short-term rental owners preparing to apply for a license in unincorporated Teller County, Colorado.
           </p>
+          <div className="heroActions">
+            <a className="primaryButton" href="#start">Start preparing</a>
+            <a className="secondaryButton" href="#resources">Explore resources</a>
+          </div>
+          <div className="statusCard">
+            <span className="statusDot" aria-hidden="true" />
+            <div>
+              <strong>Current County status</strong>
+              <p>Ordinance No. 23 has been adopted. Teller County says applications are not being accepted yet while the licensing process is being implemented.</p>
+            </div>
+          </div>
+        </div>
+        <div className="heroCredit">Pikes Peak region • Colorado</div>
+      </section>
+
+      <section className="intro" id="start">
+        <div className="sectionKicker">Your road map</div>
+        <div className="introGrid">
+          <div>
+            <h2>Turn a complicated process into a clear checklist.</h2>
+          </div>
+          <div>
+            <p>
+              TellerCountySTRHelp.com is designed as an independent, owner-focused guide. It does not replace Teller County’s official instructions; it helps you understand them, organize your paperwork, and prepare your property before you apply.
+            </p>
+          </div>
+        </div>
+        <div className="stepGrid">
+          {steps.map((step) => (
+            <article className="stepCard" key={step.n}>
+              <span>{step.n}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="faqSection">
-        <article className="faqItem">
-          <div className="faqNumber">01</div>
-          <div className="faqContent">
-            <h2>Who are certified septic inspectors in Teller County?</h2>
-            <p className="faqLead">
-              The following contractors and examinees appear on the certified septic inspector list provided for Teller County. Because certifications expire, confirm that the inspector's certification is current before scheduling an inspection.
-            </p>
+      <section className="scenicBreak" aria-label="Teller County mountain scenery">
+        <div className="scenicPanel">
+          <p>Built for local owners</p>
+          <h2>One place for the rules, the paperwork, and the practical details.</h2>
+        </div>
+      </section>
 
-            <div className="tableWrap">
-              <table className="inspectorTable">
-                <thead>
-                  <tr>
-                    <th>Contractor</th>
-                    <th>Certified person</th>
-                    <th>Certification</th>
-                    <th>Mechanic ID</th>
-                    <th>Contractor ID</th>
-                    <th>Expiration</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {inspectors.map((item) => (
-                    <tr key={`${item.contractor}-${item.examinee}`}>
-                      <td><strong>{item.contractor}</strong></td>
-                      <td>{item.examinee}</td>
-                      <td>{item.certification}</td>
-                      <td>{item.mechanicId || '—'}</td>
-                      <td>{item.contractorId || '—'}</td>
-                      <td>{item.expiration}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="faqNote">
-              <strong>Important:</strong> Certification status can change. Verify the inspector is currently approved before relying on an inspection for your STR application.
-            </div>
+      <section className="resources" id="resources">
+        <div className="resourceHeading">
+          <div>
+            <div className="sectionKicker">Resource center</div>
+            <h2>Everything you need to prepare.</h2>
           </div>
-        </article>
+          <p>These will become dedicated subpages as we build out the site.</p>
+        </div>
+        <div className="resourceGrid">
+          {resources.map(([title, text], i) => {
+            const isCommonQuestions = title === 'Common Questions';
+            const CardTag = isCommonQuestions ? 'a' : 'article';
+            return (
+              <CardTag
+                className={`resourceCard${isCommonQuestions ? ' resourceCardLink' : ''}`}
+                key={title}
+                {...(isCommonQuestions ? { href: '/common-questions' } : {})}
+              >
+                <div className="resourceIcon">{String(i + 1).padStart(2, '0')}</div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <span className="comingSoon">{isCommonQuestions ? 'View questions →' : 'Page coming next'}</span>
+              </CardTag>
+            );
+          })}
+        </div>
+      </section>
 
-        <div className="moreQuestions">
-          <p className="sectionKicker">More answers coming</p>
-          <h2>This page will grow as owners work through the licensing process.</h2>
-          <p>We can add each new question as it comes up and keep all of the answers organized in one place.</p>
+      <section className="official" id="updates">
+        <div className="officialImage" />
+        <div className="officialContent">
+          <div className="sectionKicker light">Stay current</div>
+          <h2>Always verify against the official Teller County information.</h2>
+          <p>
+            County procedures, forms, dates, fees, and implementation details can change. This site will summarize the process, while the County remains the official source for licensing requirements.
+          </p>
+          <a className="lightButton" href={officialUrl} target="_blank" rel="noreferrer">Visit Teller County STR Information ↗</a>
         </div>
       </section>
 
@@ -103,6 +156,7 @@ export default function CommonQuestions() {
         </div>
         <div className="footerRight">
           <p>Not an official Teller County government website.</p>
+          <p className="photoCredit">Background photography: Wikimedia Commons, used under applicable Creative Commons licenses.</p>
         </div>
       </footer>
     </main>
