@@ -1,17 +1,17 @@
 const officialUrl = 'https://www.tellercounty.gov/1014/Short-Term-Rental-Information';
 
 const inspectors = [
-  { contractor: 'Savage Septic Service', examinee: 'James Savage', certification: 'NAWT - Vacuum Truck', mechanicId: '4972', contractorId: '29727', expiration: '5/20/2027' },
-  { contractor: 'Underground Solutions', examinee: 'Timothy Galvin', certification: 'NAWT - Inspector, O&M', mechanicId: '', contractorId: '180', expiration: '10/31/2026' },
-  { contractor: 'M and S Plowing LLC', examinee: 'Sheldon Bennett', certification: 'NAWT - Inspector', mechanicId: '', contractorId: '28677', expiration: '10/31/2027' },
-  { contractor: 'Septic Remedy, LLC', examinee: 'Michael Slayton', certification: 'NAWT - Inspector', mechanicId: '', contractorId: '29252', expiration: '10/31/2027' },
-  { contractor: '4 Mile Septic', examinee: 'Cody Schwab', certification: 'NAWT - Inspector', mechanicId: '4966', contractorId: '', expiration: '9/30/2026' },
-  { contractor: 'Alpine Septic', examinee: 'Chris Diethelm', certification: 'NAWT - Inspector', mechanicId: '4961', contractorId: '28418', expiration: '5/31/2027' },
-  { contractor: 'High Country Sewer & Septic LLC', examinee: 'Rich Stuckey', certification: 'NAWT - Inspector', mechanicId: '', contractorId: '29558', expiration: '9/30/2026' },
-  { contractor: 'Tri-County Septic Service Inc.', examinee: 'Patrick Lohmeier', certification: 'NAWT - Inspector', mechanicId: '4316', contractorId: '29740', expiration: '11/30/2026' },
-  { contractor: 'TAC Construction Services DBA TCS Septic', examinee: 'Terrell Cobb', certification: 'NAWT - Inspector, O&M', mechanicId: '4971', contractorId: '28510', expiration: '11/30/2027' },
-  { contractor: 'Absolute Septic, LLC', examinee: 'Timothy Edwards', certification: 'NAWT - Inspector', mechanicId: '112', contractorId: '28126', expiration: '11/30/2027' },
-  { contractor: 'Absolute Excavating LLC', examinee: 'Matthew Peterson', certification: 'NAWT - Inspector', mechanicId: '', contractorId: '29627', expiration: '9/16/2027' },
+  { contractor: 'Savage Septic Service', examinee: 'James Savage', phone: '', certification: 'NAWT - Vacuum Truck', mechanicId: '4972', contractorId: '29727', expiration: '5/20/2027' },
+  { contractor: 'Underground Solutions', examinee: 'Timothy Galvin', phone: '(719) 687-7009', certification: 'NAWT - Inspector, O&M', mechanicId: '', contractorId: '180', expiration: '10/31/2026' },
+  { contractor: 'M and S Plowing LLC', examinee: 'Sheldon Bennett', phone: '(719) 351-9325', certification: 'NAWT - Inspector', mechanicId: '', contractorId: '28677', expiration: '10/31/2027' },
+  { contractor: 'Septic Remedy, LLC', examinee: 'Michael Slayton', phone: '(719) 687-6435', certification: 'NAWT - Inspector', mechanicId: '', contractorId: '29252', expiration: '10/31/2027' },
+  { contractor: '4 Mile Septic', examinee: 'Cody Schwab', phone: '(719) 600-8010', certification: 'NAWT - Inspector', mechanicId: '4966', contractorId: '', expiration: '9/30/2026' },
+  { contractor: 'Alpine Septic', examinee: 'Chris Diethelm', phone: '(719) 464-4845', certification: 'NAWT - Inspector', mechanicId: '4961', contractorId: '28418', expiration: '5/31/2027' },
+  { contractor: 'High Country Sewer & Septic LLC', examinee: 'Rich Stuckey', phone: '(719) 820-2377', certification: 'NAWT - Inspector', mechanicId: '', contractorId: '29558', expiration: '9/30/2026' },
+  { contractor: 'Tri-County Septic Service Inc.', examinee: 'Patrick Lohmeier', phone: '(719) 748-1440', certification: 'NAWT - Inspector', mechanicId: '4316', contractorId: '29740', expiration: '11/30/2026' },
+  { contractor: 'TAC Construction Services DBA TCS Septic', examinee: 'Terrell Cobb', phone: '(719) 640-0111', certification: 'NAWT - Inspector, O&M', mechanicId: '4971', contractorId: '28510', expiration: '11/30/2027' },
+  { contractor: 'Absolute Septic, LLC', examinee: 'Timothy Edwards', phone: '(719) 689-7867', certification: 'NAWT - Inspector', mechanicId: '112', contractorId: '28126', expiration: '11/30/2027' },
+  { contractor: 'Absolute Excavating LLC', examinee: 'Matthew Peterson', phone: '(719) 440-6000', certification: 'NAWT - Inspector', mechanicId: '', contractorId: '29627', expiration: '9/16/2027' },
 ];
 
 function Header() {
@@ -67,6 +67,7 @@ export default function CommonQuestions() {
                     <tr>
                       <th>Contractor</th>
                       <th>Certified person</th>
+                      <th>Phone</th>
                       <th>Certification</th>
                       <th>Mechanic ID</th>
                       <th>Contractor ID</th>
@@ -78,6 +79,7 @@ export default function CommonQuestions() {
                       <tr key={`${item.contractor}-${item.examinee}`}>
                         <td><strong>{item.contractor}</strong></td>
                         <td>{item.examinee}</td>
+                        <td>{item.phone ? <a href={`tel:${item.phone.replace(/[^\d+]/g, '')}`}>{item.phone}</a> : 'Not located'}</td>
                         <td>{item.certification}</td>
                         <td>{item.mechanicId || '—'}</td>
                         <td>{item.contractorId || '—'}</td>
@@ -89,7 +91,7 @@ export default function CommonQuestions() {
               </div>
 
               <div className="faqNote">
-                <strong>Important:</strong> Certification status can change. Verify the inspector is currently approved before relying on an inspection for your STR application.
+                <strong>Important:</strong> Certification status and phone numbers can change. Verify the inspector is currently approved and confirm the contact information before scheduling an inspection. The phone number for Savage Septic Service could not be confirmed from the public sources reviewed.
               </div>
             </div>
           </details>
