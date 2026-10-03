@@ -50,43 +50,49 @@ export default function CommonQuestions() {
       <section className="faqSection">
         <article className="faqItem">
           <div className="faqNumber">01</div>
-          <div className="faqContent">
-            <h2>Who are certified septic inspectors in Teller County?</h2>
-            <p className="faqLead">
-              The following contractors and examinees appear on the certified septic inspector list provided for Teller County. Because certifications expire, confirm that the inspector's certification is current before scheduling an inspection.
-            </p>
+          <details className="faqContent faqDisclosure">
+            <summary className="faqQuestion">
+              <span>Who are certified septic inspectors in Teller County?</span>
+              <span className="faqChevron" aria-hidden="true">⌄</span>
+            </summary>
 
-            <div className="tableWrap">
-              <table className="inspectorTable">
-                <thead>
-                  <tr>
-                    <th>Contractor</th>
-                    <th>Certified person</th>
-                    <th>Certification</th>
-                    <th>Mechanic ID</th>
-                    <th>Contractor ID</th>
-                    <th>Expiration</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {inspectors.map((item) => (
-                    <tr key={`${item.contractor}-${item.examinee}`}>
-                      <td><strong>{item.contractor}</strong></td>
-                      <td>{item.examinee}</td>
-                      <td>{item.certification}</td>
-                      <td>{item.mechanicId || '—'}</td>
-                      <td>{item.contractorId || '—'}</td>
-                      <td>{item.expiration}</td>
+            <div className="faqAnswer">
+              <p className="faqLead">
+                The following contractors and examinees appear on the certified septic inspector list provided for Teller County. Because certifications expire, confirm that the inspector's certification is current before scheduling an inspection.
+              </p>
+
+              <div className="tableWrap">
+                <table className="inspectorTable">
+                  <thead>
+                    <tr>
+                      <th>Contractor</th>
+                      <th>Certified person</th>
+                      <th>Certification</th>
+                      <th>Mechanic ID</th>
+                      <th>Contractor ID</th>
+                      <th>Expiration</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody>
+                    {inspectors.map((item) => (
+                      <tr key={`${item.contractor}-${item.examinee}`}>
+                        <td><strong>{item.contractor}</strong></td>
+                        <td>{item.examinee}</td>
+                        <td>{item.certification}</td>
+                        <td>{item.mechanicId || '—'}</td>
+                        <td>{item.contractorId || '—'}</td>
+                        <td>{item.expiration}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
 
-            <div className="faqNote">
-              <strong>Important:</strong> Certification status can change. Verify the inspector is currently approved before relying on an inspection for your STR application.
+              <div className="faqNote">
+                <strong>Important:</strong> Certification status can change. Verify the inspector is currently approved before relying on an inspection for your STR application.
+              </div>
             </div>
-          </div>
+          </details>
         </article>
 
         <div className="moreQuestions">
